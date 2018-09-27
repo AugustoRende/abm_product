@@ -1,0 +1,27 @@
+# Primero debo instalar el servidor de MongoDB
+
+# Luego Instalar Gema
+gem install mongo
+
+# Importo MongoDB
+require "mongo"
+
+# Desactivo el Logeo de boludeces 
+Mongo::Logger.logger.level = ::Logger::FATAL
+
+# Creo conexión con la base de datos Local
+db_name = 'prueba'
+db = Mongo::Client.new([ 'localhost:27017' ], :database => db_name)
+
+# Esta es para la BD CLOUD
+# db = Mongo::Client.new('mongodb+srv://test01:test01@cluster0-wgozz.mongodb.net/prueba')
+
+
+# Recorro las colecciones y muestro el nombre
+collections = db.collections
+collections.each do |collection|
+  res.html "#{collection.name}"
+end
+
+#Insertar un elemento
+collection.insert_one({'name' => 'sword', 'size' => 3, 'cost' => 4})

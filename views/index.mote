@@ -1,0 +1,4 @@
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+
+<a class="btn btn-outline-secondary" href="product" role="button">Productos</a>
